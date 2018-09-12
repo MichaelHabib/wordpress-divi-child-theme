@@ -1,6 +1,6 @@
 {
     "name": "wordpress-divi-child-theme",
-    "version": "0.1",
+    "version": "1.0.0",
     "author": "Michael Habib <contact@michaelhabib.name>",
     "homepage": "https://michaelhabib.name",
     "private": false,
@@ -51,7 +51,11 @@
         }
     },
     "scripts": {
-        "b": "webpack --progress --config source/config.webpack.config.js",
+        "build3": "webpack ",
+        "build2": "webpack --progress ./source/js/custom.js --output ./assets/js/custom.js",
+        "build1": "webpack --progress --config source/config.webpack.config.js --mode development ./source/js/custom.js --output ./assets/js/custom.js",
+        "build-dev": "webpack --progress --mode development",
+        "build-pro": "webpack --progress --mode production",
         "build": "webpack --progress --config resources/assets/build/webpack.config.js",
         "build:production": "webpack --env.production --progress --config resources/assets/build/webpack.config.js",
         "build:profile": "webpack --progress --profile --json --config resources/assets/build/webpack.config.js",

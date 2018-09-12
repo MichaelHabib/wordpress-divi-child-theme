@@ -17,7 +17,7 @@ $(document).ready(function () {
 });
 
 $(function () {
-    $('.popup-inline').magnificPopup({
+    $('.popup-inline, .popup-inline a').magnificPopup({
         type: 'inline',
         removalDelay: 160,
         fixedContentPos: true,

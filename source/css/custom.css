@@ -183,20 +183,25 @@ blurb
 * Menu Table & Page Styling
 * ********************************************
 **/
-table.menu-table{
+
+.menu-tables table{
     width:100%;
 }
-table.menu-table td{
+.menu-tables table td{
     padding: 10px 5px;  
+    border-bottom: 1px dotted #eee;
 }
-table.menu-table tr:nth-child(1) td{
+.menu-tables tr:first-child td{
+    border-bottom: 1px dotted #555;
+}
+.menu-tables table tr:first-child td > *:first-child{
     font-size: 200%;
     font-weight: bold;
-    border-bottom: 1px dotted #555;
-    padding: 10px 0;
+    /*padding: 10px 0;*/
 }
-table.menu-table td:nth-child(2){
-    width: 80px;
+.menu-tables table td:nth-child(2){
+    min-width: 60px;
+    max-width: 120px;
     text-align: right;
     vertical-align: top;
 }
