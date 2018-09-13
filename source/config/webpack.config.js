@@ -1,29 +1,141 @@
-module.exports = {
-    // configurations here
-    context: path.resolve(__dirname, 'src'),
-    entry: {
-        // removing 'src' directory from entry point, since 'context' is taking care of that
-        app: './app.js'
+'use strict'; // eslint-disable-line
+const path = require('path');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const CleanPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+const CopyGlobsPlugin = require('copy-globs-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+var config = {
+    paths: {
+//        root: "../../",
+//        source: "source/",
+//        dist: "assets/",
     },
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: './assets/js/[name].bundle.js'
-    },
-
-    module: {
-        rules: [{
-                test: /\.scss$/,
-                use: [{
-                        loader: "style-loader"
-                    }, {
-                        loader: "css-loader", options: {
-                            sourceMap: true
-                        }
-                    }, {
-                        loader: "sass-loader", options: {
-                            sourceMap: true
-                        }
-                    }]
-            }]
+    enabled: {
+        sourceMaps: true
     }
 };
+config.paths.root = path.resolve(__dirname, `../../`);
+config.paths.source = path.join(`${config.paths.root}`, `source`);
+config.paths.dist = path.join(`${config.paths.root}`, `assets`);
+//module.exports = {
+let webpackConfig = {
+//
+// configurations here
+    context: config.paths.root,
+    mode: 'development',
+    entry: {
+        // removing 'src' directory from entry point, since 'context' is taking care of that
+        app: './source/js/custom.js',
+        custom_scss: './source/scss/custom.scss',
+    },
+    output: {
+        path: config.paths.dist,
+        filename: `./js/[name].js`
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: './js/[name].js',
+                        }
+                    },
+                ],
+            },
+//            {
+//                test: /\.css$/,
+//                use: [
+//                    {
+//                        loader: 'file-loader',
+//                        options: {
+//                            name: 'css/[name].css',
+//                        }
+//                    },
+//                    ExtractTextPlugin.extract({
+//                        fallback: "style-loader",
+//                        use: "css-loader"
+//                    })
+//                ]
+//            },
+            {
+                test: /\.scss$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'css/[name].scss.css',
+                        }
+                    },
+                    {
+                        loader: "style-loader",
+                    }, // creates style nodes from JS strings
+                    {
+                        loader: "css-loader", // translates CSS into CommonJS
+                    },
+                    {
+                        loader: "sass-loader", // compiles Sass to CSS, using Node Sass by default
+                        options: {
+                            name: 'css/[name].blocks.css',
+                            includePaths: [`${config.paths.source}scss`]
+                        }
+                    }
+                ],
+            }
+        ]
+    },
+    plugins: [
+        new ExtractTextPlugin("[name].css"),
+        new CleanWebpackPlugin([
+            'dist',
+            'build',
+            'assets'
+        ], {
+            root: '${config.paths.root}',
+            exclude: ['shared.js'],
+            verbose: true,
+            dry: false
+        }),
+    ]
+};
+/*
+ * ********************************************
+ * Create & push config per module into webpackConfig.module
+ */
+
+/*  config_SCSS  */
+let config_scss = {
+    test: /\.scss$/,
+    include: config.paths.source,
+    use: ExtractTextPlugin.extract({
+        fallback: 'style',
+        use: [
+            {loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])}
+        ],
+    }),
+};
+//webpackConfig.module.rules.push(config_scss);
+//webpackConfig.module.rules.push(JSON.stringify(config_scss));
+
+
+/*
+ * ********************************************
+ * Create & push plugins into webpackConfig.plugins
+ */
+let plugins_extractText = new ExtractTextPlugin({// define where to save the file
+    filename: 'dist/[name].bundle.css',
+    allChunks: true
+});
+//webpackConfig.plugins.push(plugins_extractText);
+/*
+ * ********************************************
+ * export webpackConfig
+ */
+
+//console.log(webpackConfig);
+module.exports = webpackConfig;
