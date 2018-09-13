@@ -28,23 +28,25 @@ let webpackConfig = {
     entry: {
         // removing 'src' directory from entry point, since 'context' is taking care of that
         main: './source/index.js',
+//        main_css: './source/scss/main.scss',
     },
     output: {
         path: config.paths.dist,
     },
     module: {
         rules: [
-//            {
-//                test: /\.js/,
-//                use: [
-//                    {
-//                        loader: 'file-loader',
-//                        options: {
-//                            name: './js/[name].js',
-//                        }
-//                    }
-//                ]
-//            },
+            {
+                test: /\.js/,
+                exclude: [/source\/index.js/],
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: './js/[name].js',
+                        }
+                    }
+                ]
+            },
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [

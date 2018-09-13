@@ -39,7 +39,7 @@ add_action('wp_enqueue_scripts', 'child_theme_configurator_css', 20);
  * Proper way to enqueue scripts and styles.
  */
 function enqueue_child_them_files() {
-    wp_enqueue_style('custom.css', trailingslashit(get_stylesheet_directory_uri()) . "/assets/css/custom.css");
+    wp_enqueue_style('main.css', trailingslashit(get_stylesheet_directory_uri()) . "/assets/css/main.css");
     wp_enqueue_script('custom.js', trailingslashit(get_stylesheet_directory_uri()) . '/assets/js/custom.js', array(), '1.0.0', true);
     wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
     wp_enqueue_script('magnific-popup-script', 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js', array('jquery'), null, true);
