@@ -1,19 +1,13 @@
 'use strict'; // eslint-disable-line
 const path = require('path');
 const webpack = require('webpack');
-const merge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
-const CopyGlobsPlugin = require('copy-globs-webpack-plugin');
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-//const extractSASS = new ExtractTextPlugin('assets/scss/[name]-extractSASS.css');
+const devMode = process.env.NODE_ENV !== 'production';
 var config = {
     paths: {
-//        root: "../../",
-//        source: "source/",
-//        dist: "assets/",
     },
     enabled: {
         sourceMaps: true
@@ -22,16 +16,14 @@ var config = {
 config.paths.root = path.resolve(__dirname, `../../`);
 config.paths.source = path.join(`${config.paths.root}`, `source`);
 config.paths.dist = path.join(`${config.paths.root}`, `assets`);
-//module.exports = {
 let webpackConfig = {
-//
-// configurations here
-    context: config.paths.root,
+    context: `${config.paths.root}`,
     mode: 'development',
     entry: {
         // removing 'src' directory from entry point, since 'context' is taking care of that
-        app: './source/js/custom.js',
+        main: './source/js/custom.js',
 //        custom_scss: './source/scss/custom.scss',
+        test_scss: './source/scss/test.scss',
     },
     output: {
         path: config.paths.dist,
@@ -50,54 +42,62 @@ let webpackConfig = {
                     },
                 ],
             },
-//            {
-//                test: /\.css$/,
-//                use: [
-//                    {
-//                        loader: 'file-loader',
-//                        options: {
-//                            name: 'css/[name].css',
-//                        }
-//                    },
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'css/[name].css',
+                        }
+                    },
 //                    ExtractTextPlugin.extract({
 //                        fallback: "style-loader",
 //                        use: "css-loader"
 //                    })
-//                ]
-//            },
+                ]
+            },
             {
-                test: /\.scsss$/,
-                use: ExtractTextPlugin.extract({
-//                    fallback: 'style-loader',
-                    use: [
+//                test: /\.scss/,
+                test: /\.(sa|sc|c)ss$/,
+                use: [
 //                        {
 //                            loader: 'file-loader',
 //                            options: {
 //                                name: 'css/[name].scss.css',
 //                            }
 //                        },
-//                        {
-//                            loader: "style-loader",
-//                        }, // creates style nodes from JS strings
-                        {
-                            loader: "css-loader", // translates CSS into CommonJS
-                        },
-                        {
-                            loader: "sass-loader", // compiles Sass to CSS, using Node Sass by default
-                            options: {
-                                name: 'css/[name].sass-loader.css',
-                                includePaths: [`${config.paths.source}scss`],
-//                                sourceMap: config.enabled.sourceMaps,
-//                                sourceComments: true,
-                            }
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+
+                    },
+                    {
+                        loader: "style-loader",
+                    }, // creates style nodes from JS strings
+                    {
+                        loader: "css-loader", // translates CSS into CommonJS
+                    },
+                    {
+                        loader: "sass-loader", // compiles Sass to CSS, using Node Sass by default
+                        options: {
+                            name: 'css/[name].sass-loader.css',
+                            includePaths: [`${config.paths.source}scss`],
+                            sourceMap: true,
+                            sourceComments: true,
                         }
-                    ],
-                })
+                    }
+                ],
             }
         ]
     },
     plugins: [
         new ExtractTextPlugin("custom.css"),
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: devMode ? '[name].css' : '[name].[hash].css',
+            chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
+        }),
         new CleanWebpackPlugin([
             'dist',
             'build',
