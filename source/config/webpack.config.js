@@ -2,11 +2,13 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const CleanPlugin = require('clean-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const CopyGlobsPlugin = require('copy-globs-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+
+//const extractSASS = new ExtractTextPlugin('assets/scss/[name]-extractSASS.css');
 var config = {
     paths: {
 //        root: "../../",
@@ -29,7 +31,7 @@ let webpackConfig = {
     entry: {
         // removing 'src' directory from entry point, since 'context' is taking care of that
         app: './source/js/custom.js',
-        custom_scss: './source/scss/custom.scss',
+//        custom_scss: './source/scss/custom.scss',
     },
     output: {
         path: config.paths.dist,
@@ -64,39 +66,44 @@ let webpackConfig = {
 //                ]
 //            },
             {
-                test: /\.scss$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: 'css/[name].scss.css',
+                test: /\.scsss$/,
+                use: ExtractTextPlugin.extract({
+//                    fallback: 'style-loader',
+                    use: [
+//                        {
+//                            loader: 'file-loader',
+//                            options: {
+//                                name: 'css/[name].scss.css',
+//                            }
+//                        },
+//                        {
+//                            loader: "style-loader",
+//                        }, // creates style nodes from JS strings
+                        {
+                            loader: "css-loader", // translates CSS into CommonJS
+                        },
+                        {
+                            loader: "sass-loader", // compiles Sass to CSS, using Node Sass by default
+                            options: {
+                                name: 'css/[name].sass-loader.css',
+                                includePaths: [`${config.paths.source}scss`],
+//                                sourceMap: config.enabled.sourceMaps,
+//                                sourceComments: true,
+                            }
                         }
-                    },
-                    {
-                        loader: "style-loader",
-                    }, // creates style nodes from JS strings
-                    {
-                        loader: "css-loader", // translates CSS into CommonJS
-                    },
-                    {
-                        loader: "sass-loader", // compiles Sass to CSS, using Node Sass by default
-                        options: {
-                            name: 'css/[name].blocks.css',
-                            includePaths: [`${config.paths.source}scss`]
-                        }
-                    }
-                ],
+                    ],
+                })
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin("[name].css"),
+        new ExtractTextPlugin("custom.css"),
         new CleanWebpackPlugin([
             'dist',
             'build',
             'assets'
         ], {
-            root: '${config.paths.root}',
+            root: `${config.paths.root}`,
             exclude: ['shared.js'],
             verbose: true,
             dry: false
