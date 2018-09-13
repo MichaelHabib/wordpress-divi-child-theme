@@ -1,4 +1,5 @@
 'use strict'; // eslint-disable-line
+
 const path = require('path');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -6,77 +7,59 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const devMode = process.env.NODE_ENV !== 'production';
-var config = {
-    paths: {
-    },
-    enabled: {
-        sourceMaps: true
-    }
-};
+
+var config = {};
+/*  paths */
+config.paths = {};
+//config.paths.root = path.resolve(__dirname, ``);
 config.paths.root = path.resolve(__dirname, `../../`);
-config.paths.source = path.join(`${config.paths.root}`, `source`);
-config.paths.dist = path.join(`${config.paths.root}`, `assets`);
+config.paths.src = path.join(`${config.paths.root}`, `source/`);
+config.paths.dist = path.join(`${config.paths.root}`, `assets/`);
+/*  options  */
+config.enabled = {};
+config.enabled.sourceMaps = true;
+
+console.log(`- config.paths.root = ${config.paths.root}`);
+
+
 let webpackConfig = {
     context: `${config.paths.root}`,
     mode: 'development',
     entry: {
         // removing 'src' directory from entry point, since 'context' is taking care of that
-        main: './source/js/custom.js',
-//        custom_scss: './source/scss/custom.scss',
-        test_scss: './source/scss/test.scss',
+        main: './source/index.js',
     },
     output: {
         path: config.paths.dist,
-        filename: `./js/[name].js`
     },
     module: {
         rules: [
+//            {
+//                test: /\.js/,
+//                use: [
+//                    {
+//                        loader: 'file-loader',
+//                        options: {
+//                            name: './js/[name].js',
+//                        }
+//                    }
+//                ]
+//            },
             {
-                test: /\.js/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: './js/[name].js',
-                        }
-                    },
-                ],
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: 'css/[name].css',
-                        }
-                    },
-//                    ExtractTextPlugin.extract({
-//                        fallback: "style-loader",
-//                        use: "css-loader"
-//                    })
-                ]
-            },
-            {
-//                test: /\.scss/,
                 test: /\.(sa|sc|c)ss$/,
                 use: [
-//                        {
-//                            loader: 'file-loader',
-//                            options: {
-//                                name: 'css/[name].scss.css',
-//                            }
-//                        },
                     {
-                        loader: MiniCssExtractPlugin.loader,
-
+                        loader: 'file-loader',
+                        options: {
+                            name: `css/[name].css`,
+                        }
                     },
-                    {
-                        loader: "style-loader",
-                    }, // creates style nodes from JS strings
-                    {
-                        loader: "css-loader", // translates CSS into CommonJS
-                    },
+//                    {
+//                        loader: "style-loader",
+//                    },
+//                    {
+//                        loader: "css-loader", // translates CSS into CommonJS
+//                    },
                     {
                         loader: "sass-loader", // compiles Sass to CSS, using Node Sass by default
                         options: {
@@ -87,17 +70,32 @@ let webpackConfig = {
                         }
                     }
                 ],
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'images/[name].[ext]',
+                        }
+                    },
+                ]
             }
-        ]
+        ],
+
     },
     plugins: [
-        new ExtractTextPlugin("custom.css"),
+//        new ExtractTextPlugin("custom.css"),
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
             // both options are optional
             filename: devMode ? '[name].css' : '[name].[hash].css',
             chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
         }),
+//        new HtmlWebpackPlugin({
+//            title: 'Output Management'
+//        }),
         new CleanWebpackPlugin([
             'dist',
             'build',

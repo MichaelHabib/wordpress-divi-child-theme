@@ -1,9 +1,7 @@
-/*.clearfix:after {
-    content: "";
-    display: table;
-    clear: both;
-}*/
 
+#logo{
+    max-height: 90%;
+}
 
 /*
 .header-blurb
@@ -98,25 +96,12 @@ blurb
 
 }
 
-.service-blurb-thumbnail.et_pb_blurb .et_pb_blurb_content .et_pb_blurb_container et_pb_promo_description{
-
+#main-footer{
+    padding-bottom:40px;
 
 }
-.col-dropshadow,
-.col-dropshadow-1{
-    box-shadow: 0 0 3px -1px #999;
-} 
-.col-dropshadow-2{
-    box-shadow: 0 0 5px -1px #999;
-} 
-.col-dropshadow-3{
-    box-shadow: 0 0 7px -1px #999;
-} 
-.col-dropshadow-4{
-    box-shadow: 0 0 10px -1px #999;
-} 
 
-/*class="et_pb_module et_pb_text et_pb_text_9 et_pb_bg_layout_light  et_pb_text_align_center"*/
+
 /* Divi Contact Form CSS */
 .et-pb-contact-message {
     background-color: #eee;
@@ -132,18 +117,6 @@ blurb
 }
 .et_pb_contact_right .et_pb_contact_captcha_question{
     padding: 0 10px 0 20px;
-}
-
-
-
-
-#logo{
-    max-height: 90%;
-}
-
-#main-footer{
-    padding-bottom:40px;
-
 }
 
 
@@ -175,52 +148,3 @@ blurb
     width: 50%;
 }
 
-
-
-
-/**
-* ********************************************
-* Menu Table & Page Styling
-* ********************************************
-**/
-
-.menu-tables table{
-    width:100%;
-}
-.menu-tables table td{
-    padding: 10px 5px;  
-    border-bottom: 1px dotted #eee;
-}
-.menu-tables tr:first-child td{
-    border-bottom: 1px dotted #555;
-}
-.menu-tables table tr:first-child td > *:first-child{
-    font-size: 200%;
-    font-weight: bold;
-    /*padding: 10px 0;*/
-}
-.menu-tables table td:nth-child(2){
-    min-width: 60px;
-    max-width: 120px;
-    text-align: right;
-    vertical-align: top;
-}
-
-/**
-* ********************************************
-* Magnific Popup 
-* ********************************************
-**/
-.mfp-wrap{
-    /*To show the popup over divi theme navigation!*/
-    z-index: 100001 !important;
-}
-.popup-inline-content{
-    /*display: none;*/
-    position: relative;
-    background: #FFF;
-    padding: 20px;
-    width: auto;
-    max-width: 800px;
-    margin: 20px auto;
-}
