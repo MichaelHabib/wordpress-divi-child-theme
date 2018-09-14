@@ -3,103 +3,33 @@
     max-height: 90%;
 }
 
-/*
-.header-blurb
-*/
+.burb-columns{
+    &.et_pb_section{
 
-.header-blurb.et_pb_blurb{
-    position: relative;
-    border-radius: 10px 0 0 10px ;
-    overflow:hidden;
-    box-shadow: 0 0 2px 0px #f5f5f5;
+        .et_pb_blurb .et_pb_blurb_content{
+
+            /*position:relative;*/  
+            margin-bottom: 40px;
+            &:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+            .et_pb_main_blurb_image{
+
+
+            }
+
+            .et_pb_blurb_container {
+
+                h2,h3, h4{
+ 
+                }
+            }
+        }
+    } /*end &.et_pb_section*/
 }
 
-.header-blurb.et_pb_blurb .et_pb_blurb_content{
-    max-width: none;
-
-}
-
-
-.header-blurb.et_pb_blurb .et_pb_blurb_content .et_pb_main_blurb_image{
-    padding:10px;
-    border-right: 1px solid #eee;
-    background: #fff;
-    margin-top: -10px;
-    z-index: 100;
-    position:inherit;
-
-
-}
-
-.header-blurb.et_pb_blurb .et_pb_blurb_content .et_pb_blurb_container{
-    background: #fafafa;
-    padding:20px;
-    z-index: 99;
-    width: 100%;
-    position:inherit;
-}
-.header-blurb.et_pb_blurb .et_pb_blurb_content .et_pb_blurb_container h4{
-    background: #f0f0f0;
-    padding:20px 20px 20px 30px;
-    margin: -20px -20px 20px -30px;
-    border-bottom: 1px solid #ddd;
-
-}
-
-/*
-.service-blurb-thumbnail
-
-blurb layout:
-blurb
-    content
-        image
-        container
-            h4
-            desc
-*/
-.service-blurb-thumbnail.et_pb_blurb .et_pb_blurb_content{
-
-
-}
-
-
-.service-blurb-thumbnail.et_pb_blurb .et_pb_blurb_content{
-
-    position:relative;  
-    margin-bottom: 40px;
-}
-.service-blurb-thumbnail.et_pb_blurb .et_pb_blurb_content:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-.service-blurb-thumbnail.et_pb_blurb .et_pb_blurb_content .et_pb_main_blurb_image{
-
-
-}
-
-.service-blurb-thumbnail.et_pb_blurb .et_pb_blurb_content .et_pb_blurb_container {
-    bottom: -40px;
-    position: absolute;
-    background: #fff;
-    padding: 0px 20px 10px 20px;
-    width: 100%;
-
-
-}
-
-.service-blurb-thumbnail.et_pb_blurb .et_pb_blurb_content .et_pb_blurb_container h4{
-    /*background: url("../images/website-elements-bg1.jpeg");*/
-    background-color: #f5f5f5;
-    padding:20px;
-    margin: -20px -20px 20px -20px;
-
-}
-
-#main-footer{
-    padding-bottom:40px;
-
-}
 
 
 /* Divi Contact Form CSS */
@@ -148,3 +78,9 @@ blurb
     width: 50%;
 }
 
+
+
+#main-footer{
+    padding-bottom:40px;
+
+}

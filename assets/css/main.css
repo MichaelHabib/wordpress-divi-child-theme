@@ -25,87 +25,21 @@
 #logo {
   max-height: 90%; }
 
-/*
-.header-blurb
-*/
-/* line 10, source/scss/divi.scss */
-.header-blurb.et_pb_blurb {
-  position: relative;
-  border-radius: 10px 0 0 10px;
-  overflow: hidden;
-  box-shadow: 0 0 2px 0px #f5f5f5; }
-
-/* line 17, source/scss/divi.scss */
-.header-blurb.et_pb_blurb .et_pb_blurb_content {
-  max-width: none; }
-
-/* line 23, source/scss/divi.scss */
-.header-blurb.et_pb_blurb .et_pb_blurb_content .et_pb_main_blurb_image {
-  padding: 10px;
-  border-right: 1px solid #eee;
-  background: #fff;
-  margin-top: -10px;
-  z-index: 100;
-  position: inherit; }
-
-/* line 34, source/scss/divi.scss */
-.header-blurb.et_pb_blurb .et_pb_blurb_content .et_pb_blurb_container {
-  background: #fafafa;
-  padding: 20px;
-  z-index: 99;
-  width: 100%;
-  position: inherit; }
-
-/* line 41, source/scss/divi.scss */
-.header-blurb.et_pb_blurb .et_pb_blurb_content .et_pb_blurb_container h4 {
-  background: #f0f0f0;
-  padding: 20px 20px 20px 30px;
-  margin: -20px -20px 20px -30px;
-  border-bottom: 1px solid #ddd; }
-
-/*
-.service-blurb-thumbnail
-
-blurb layout:
-blurb
-    content
-        image
-        container
-            h4
-            desc
-*/
-/* line 66, source/scss/divi.scss */
-.service-blurb-thumbnail.et_pb_blurb .et_pb_blurb_content {
-  position: relative;
-  margin-bottom: 40px; }
-
-/* line 71, source/scss/divi.scss */
-.service-blurb-thumbnail.et_pb_blurb .et_pb_blurb_content:after {
-  content: "";
-  display: table;
-  clear: both; }
-
-/* line 81, source/scss/divi.scss */
-.service-blurb-thumbnail.et_pb_blurb .et_pb_blurb_content .et_pb_blurb_container {
-  bottom: -40px;
-  position: absolute;
-  background: #fff;
-  padding: 0px 20px 10px 20px;
-  width: 100%; }
-
-/* line 91, source/scss/divi.scss */
-.service-blurb-thumbnail.et_pb_blurb .et_pb_blurb_content .et_pb_blurb_container h4 {
-  /*background: url("../images/website-elements-bg1.jpeg");*/
-  background-color: #f5f5f5;
-  padding: 20px;
-  margin: -20px -20px 20px -20px; }
-
-/* line 99, source/scss/divi.scss */
-#main-footer {
-  padding-bottom: 40px; }
+/* line 6, source/scss/divi.scss */
+.burb-columns {
+  /*end &.et_pb_section*/ }
+  /* line 9, source/scss/divi.scss */
+  .burb-columns.et_pb_section .et_pb_blurb .et_pb_blurb_content {
+    /*position:relative;*/
+    margin-bottom: 40px; }
+    /* line 13, source/scss/divi.scss */
+    .burb-columns.et_pb_section .et_pb_blurb .et_pb_blurb_content:after {
+      content: "";
+      display: table;
+      clear: both; }
 
 /* Divi Contact Form CSS */
-/* line 106, source/scss/divi.scss */
+/* line 36, source/scss/divi.scss */
 .et-pb-contact-message {
   background-color: #eee;
   color: #555;
@@ -114,12 +48,12 @@ blurb
   border: 1px solid #4080bf;
   display: none; }
 
-/* line 114, source/scss/divi.scss */
+/* line 44, source/scss/divi.scss */
 .et_pb_contact_right {
   background-color: #eee;
   color: #555; }
 
-/* line 118, source/scss/divi.scss */
+/* line 48, source/scss/divi.scss */
 .et_pb_contact_right .et_pb_contact_captcha_question {
   padding: 0 10px 0 20px; }
 
@@ -130,24 +64,28 @@ blurb
  *  ----------- */
 /* Two column on mobile */
 @media (max-width: 980px) {
-  /* line 130, source/scss/divi.scss */
+  /* line 60, source/scss/divi.scss */
   .twoX2 .et_pb_column {
     max-width: 50% !important; }
-  /* line 133, source/scss/divi.scss */
+  /* line 63, source/scss/divi.scss */
   .twoX2 .et_pb_column.et_pb_column_1_3:nth-of-type(3) {
     margin: 0 25%; } }
 
 @media (max-width: 479px) {
-  /* line 138, source/scss/divi.scss */
+  /* line 68, source/scss/divi.scss */
   .et_pb_section .et_pb_row.twoX2 div.et_pb_column.et_pb_column_1_4 {
     width: 47.25% !important; } }
 
 /**
  * Custom Module Sizes
  */
-/* line 147, source/scss/divi.scss */
+/* line 77, source/scss/divi.scss */
 .et_pb_module.width-50 {
   width: 50%; }
+
+/* line 83, source/scss/divi.scss */
+#main-footer {
+  padding-bottom: 40px; }
 
 /**
 * ********************************************
