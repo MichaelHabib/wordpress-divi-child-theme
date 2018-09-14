@@ -1,9 +1,26 @@
 = wordpress-divi-child-theme 
-Divi child theme by Michael Habib. 
+.Divi child theme by Michael Habib. 
 
 Notes: This is still in *Alpha* phase. 
 
+== Goals
+- [ ] complete assets management using webpack instead of wp_queue functions.
 
+
+== To Do:
+- Configure webpack to output `main.js` into `/assets/js/` folder.
+- Concat & minify js files.
+- Concat & minify css files.
+- Auto resizing of images.
+- Configure babel and other JS utilities for better browser support of ES6
+
+== Changelog
+
+=== v0.1.1
+- Setup webpack & yarn for easier assets management
+- Split source files such as JS, CSS & SCSS files & moved them to `/source/` folder.
+- Configured webpack to output file into `/assets/{css,js,images}`, excluding main.js which is still at `/assets/main.js`.
+- 
 == Version Numbers 
 Major.Minor.Patches 
 
