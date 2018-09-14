@@ -1,10 +1,11 @@
 = wordpress-divi-child-theme 
+Divi child theme by Michael Habib. 
 
 Notes: This is still in *Alpha* phase. 
-Divi child theme by Michael Habib
 
 
 == Version Numbers 
 Major.Minor.Patches 
+
 - master branch for development 
 - tags minor versions mark "stable" version for alpha releases. 
