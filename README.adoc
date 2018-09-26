@@ -1,7 +1,24 @@
-= wordpress-divi-child-theme 
-.Divi child theme by Michael Habib. 
+= wordpress-divi-child-theme
+.Divi child theme by Michael Habib.
 
-Notes: This is still in *Alpha* phase. 
+== Notes:
+- This is still in *Alpha* phase.
+- HACK : All js files must be required in source/index.js in order for webpack to copy them to the correct output folder.
+** Possible Fix: correctly use webpack to combine all js files.
+
+== Features & Addons:
+
+=== Added MagnificPopup JS Plugin.
+- Added using cdnjs.com and using wp_enqueue() function in functions.php
+- JS code in source/js/magnific-popup.custom.js
+
+=== Added custom "tabs" jquery module.
+- Needs refactoring & to be packaged as a proper module.
+- JS code in source/js/custom.js #Custom Tabs Module
+- CSS/SCSS code in source/scss/custom.scss #Custom Tabs Module
+
+=== Added Swiper JS Plugin.
+- Added using cdnjs.com and using wp_enqueue() function in functions.php
 
 == Goals
 - [ ] complete assets management using webpack instead of wp_queue functions.
@@ -20,9 +37,9 @@ Notes: This is still in *Alpha* phase.
 - Setup webpack & yarn for easier assets management
 - Split source files such as JS, CSS & SCSS files & moved them to `/source/` folder.
 - Configured webpack to output file into `/assets/{css,js,images}`, excluding main.js which is still at `/assets/main.js`.
-- 
-== Version Numbers 
-Major.Minor.Patches 
+-
+== Version Numbers
+Major.Minor.Patches
 
-- master branch for development 
-- tags minor versions mark "stable" version for alpha releases. 
+- master branch for development
+- tags minor versions mark "stable" version for alpha releases.

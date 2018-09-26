@@ -112,17 +112,17 @@
 * Menu Table & Page Styling
 * ********************************************
 **/
-/* line 8, source/scss/custom.scss */
+/* line 6, source/scss/custom.scss */
 .menu-tables table {
   width: 100%; }
-  /* line 11, source/scss/custom.scss */
+  /* line 9, source/scss/custom.scss */
   .menu-tables table td {
     padding: 10px 5px;
     border-bottom: 1px dotted #eee; }
-  /* line 15, source/scss/custom.scss */
+  /* line 14, source/scss/custom.scss */
   .menu-tables table tr:first-child td {
     border-bottom: 1px dotted #555; }
-    /* line 18, source/scss/custom.scss */
+    /* line 17, source/scss/custom.scss */
     .menu-tables table tr:first-child td > *:first-child {
       font-size: 200%;
       font-weight: bold;
@@ -133,3 +133,13 @@
     max-width: 120px;
     text-align: right;
     vertical-align: top; }
+
+/**
+#Custom Tabs Module
+*/
+/* line 37, source/scss/custom.scss */
+.showOnSelect.content {
+  display: none; }
+  /* line 40, source/scss/custom.scss */
+  .showOnSelect.content.active {
+    display: block; }
