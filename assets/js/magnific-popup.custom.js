@@ -1,6 +1,5 @@
 var $ = jQuery.noConflict();
 $(document).ready(function() {
-  //    $('.popup-iframe .popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
   $('a.popup-iframe, .popup-iframe a, a.popup-youtube, a.popup-vimeo, a.popup-gmaps').each(function() {
     $(this).magnificPopup({
       //        disableOn: 700,

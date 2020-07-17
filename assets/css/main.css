@@ -21,25 +21,25 @@
 .col-dropshadow-4 {
   box-shadow: 0 0 10px -1px #999; }
 
-/* line 2, source/scss/divi.scss */
+/* line 1, source/scss/divi.scss */
 #logo {
   max-height: 90%; }
 
-/* line 6, source/scss/divi.scss */
-.burb-columns {
+/* line 5, source/scss/divi.scss */
+.blurb-columns {
   /*end &.et_pb_section*/ }
-  /* line 9, source/scss/divi.scss */
-  .burb-columns.et_pb_section .et_pb_blurb .et_pb_blurb_content {
+  /* line 8, source/scss/divi.scss */
+  .blurb-columns.et_pb_section .et_pb_blurb .et_pb_blurb_content {
     /*position:relative;*/
     margin-bottom: 40px; }
-    /* line 13, source/scss/divi.scss */
-    .burb-columns.et_pb_section .et_pb_blurb .et_pb_blurb_content:after {
+    /* line 12, source/scss/divi.scss */
+    .blurb-columns.et_pb_section .et_pb_blurb .et_pb_blurb_content:after {
       content: "";
       display: table;
       clear: both; }
 
 /* Divi Contact Form CSS */
-/* line 36, source/scss/divi.scss */
+/* line 34, source/scss/divi.scss */
 .et-pb-contact-message {
   background-color: #eee;
   color: #555;
@@ -48,12 +48,12 @@
   border: 1px solid #4080bf;
   display: none; }
 
-/* line 44, source/scss/divi.scss */
+/* line 42, source/scss/divi.scss */
 .et_pb_contact_right {
   background-color: #eee;
   color: #555; }
 
-/* line 48, source/scss/divi.scss */
+/* line 46, source/scss/divi.scss */
 .et_pb_contact_right .et_pb_contact_captcha_question {
   padding: 0 10px 0 20px; }
 
@@ -64,26 +64,26 @@
  *  ----------- */
 /* Two column on mobile */
 @media (max-width: 980px) {
-  /* line 60, source/scss/divi.scss */
+  /* line 58, source/scss/divi.scss */
   .twoX2 .et_pb_column {
     max-width: 50% !important; }
-  /* line 63, source/scss/divi.scss */
+  /* line 61, source/scss/divi.scss */
   .twoX2 .et_pb_column.et_pb_column_1_3:nth-of-type(3) {
     margin: 0 25%; } }
 
 @media (max-width: 479px) {
-  /* line 68, source/scss/divi.scss */
+  /* line 66, source/scss/divi.scss */
   .et_pb_section .et_pb_row.twoX2 div.et_pb_column.et_pb_column_1_4 {
     width: 47.25% !important; } }
 
 /**
  * Custom Module Sizes
  */
-/* line 77, source/scss/divi.scss */
+/* line 75, source/scss/divi.scss */
 .et_pb_module.width-50 {
   width: 50%; }
 
-/* line 83, source/scss/divi.scss */
+/* line 79, source/scss/divi.scss */
 #main-footer {
   padding-bottom: 40px; }
 
