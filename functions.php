@@ -16,30 +16,32 @@ $child_theme_dir_uri = trailingslashit(get_stylesheet_directory_uri());
 // BEGIN ENQUEUE PARENT ACTION
 // AUTO GENERATED - Do not modify or remove comment markers above or below:
 
-if (!function_exists('enqueue_parent_ftheme_files')):
+if (!function_exists('enqueue_parent_ftheme_files')) {
 
 	function enqueue_parent_ftheme_files()
 	{
 		wp_enqueue_style('chld_thm_cfg_parent', trailingslashit(get_template_directory_uri()) . 'style.css', array());
 	}
 
-endif;
+}
 add_action('wp_enqueue_scripts', 'enqueue_parent_ftheme_files', 10);
 
-if (!function_exists('child_theme_configurator_css')):
+if (!function_exists('child_theme_configurator_css')) {
 
 	function child_theme_configurator_css()
 	{
 		wp_enqueue_style('chld_thm_cfg_separate', trailingslashit(get_stylesheet_directory_uri()) . 'ctc-style.css', array('chld_thm_cfg_parent', 'divi-style'));
 	}
 
-endif;
+}
 add_action('wp_enqueue_scripts', 'child_theme_configurator_css', 20);
 
-/**
- * Proper way to enqueue scripts and styles.
- */
-function enqueue_child_them_files()
+
+/*
+ * ************************************************************
+ * Enqueue Assets
+ * */
+function enqueue_child_theme_files()
 {
 	wp_enqueue_style('main.css', trailingslashit(get_stylesheet_directory_uri()) . "/assets/css/main.css");
 	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
@@ -56,10 +58,13 @@ function enqueue_child_them_files()
 
 }
 
-add_action('wp_enqueue_scripts', 'enqueue_child_them_files');
+add_action('wp_enqueue_scripts', 'enqueue_child_theme_files');
 
 
-// END ENQUEUE PARENT ACTION
+/*
+ * ************************************************************
+ * Image Sizes
+ * */
 
 //add_image_size('320x240_scale', '320', '240', false);
 add_image_size('320x240_cropped_center_center', '320', '240', ["center", "center"]);
