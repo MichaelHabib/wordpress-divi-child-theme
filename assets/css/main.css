@@ -87,6 +87,13 @@
 #main-footer {
   padding-bottom: 40px; }
 
+/* line 3, source/scss/contact-form-7.scss */
+.wpcf7-form .wpcf7-email,
+.wpcf7-form .wpcf7-textarea,
+.wpcf7-form .wpcf7-text {
+  width: 100%;
+  margin-bottom: 10px; }
+
 /**
 * ********************************************
 * Magnific Popup 

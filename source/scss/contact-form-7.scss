@@ -1,44 +1,14 @@
-/**
-* ********************************************
-* Menu Table & Page Styling
-* ********************************************
-**/
-.menu-tables table {
-  width: 100%;
+.wpcf7-form {
 
-  td {
-    padding: 10px 5px;
-    border-bottom: 1px dotted #eee;
+  .wpcf7-email,
+  .wpcf7-textarea,
+  .wpcf7-text {
+    width: 100%;
+    margin-bottom: 10px;
+
   }
 
-  tr:first-child td {
-    border-bottom: 1px dotted #555;
+  .form-control {
 
-    & > *:first-child {
-      font-size: 200%;
-      font-weight: bold;
-      /*padding: 10px 0;*/
-    }
-  }
-
-  td:nth-child(2) {
-    min-width: 60px;
-    max-width: 120px;
-    text-align: right;
-    vertical-align: top;
-  }
-}
-/**
-#Custom Tabs Module
-*/
-.showOnSelect {
-  &.menuItem {}
-
-  &.content {
-    display: none;
-
-    &.active {
-      display: block;
-    }
   }
 }
