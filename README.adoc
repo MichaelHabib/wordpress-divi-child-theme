@@ -1,10 +1,9 @@
-= wordpress-divi-child-theme
-.Divi child theme by Michael Habib.
+= Divi Child Theme
+
 
 == Notes:
+- Master branch is the latest dev branch. use release tags for more stable versions of this software.
 - This is still in *Alpha* phase.
-- HACK : All js files must be required in source/index.js in order for webpack to copy them to the correct output folder.
-** Possible Fix: correctly use webpack to combine all js files.
 
 == Features & Addons:
 
@@ -32,6 +31,11 @@
 - Configure babel and other JS utilities for better browser support of ES6
 
 == Changelog
+
+=== v0.2.0
+- Minor readme.adoc updates
+- Switching to laravel-mix instead of vanilla webpack config.
+- Moving all resources from `source/` to `src/` .
 
 === v0.1.1
 - Setup webpack & yarn for easier assets management
