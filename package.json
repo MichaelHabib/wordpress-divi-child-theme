@@ -18,15 +18,20 @@
     }
   ],
   "scripts": {
-    "build": "node_modules/.bin/webpack --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "build2": "webpack --progress  --watch --config src/config/webpack.mix.js"
+    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "devDependencies": {
     "laravel-mix": "^5.0.5",
     "resolve-url-loader": "^3.1.0",
     "sass": "^1.26.10",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.12"
+    "vue-template-compiler": "^2.6.12",
+    "animate.css": "^4.1.0",
+    "hover.css": "^2.3.2"
   },
-  "dependencies": {}
+  "dependencies": {
+  }
 }
