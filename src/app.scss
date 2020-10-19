@@ -1,0 +1,23 @@
+
+
+:root {
+  --primary-color: #ff9000;
+  --light-grey: #efefef;
+  --medium-grey: #333333;
+  --dark-grey: #222222;
+  --black: #000000;
+  --space: 1rem;
+
+}
+
+
+@import "scss/general.scss";
+@import "scss/divi.scss";
+@import "scss/contact-form-7.scss";
+@import "scss/magnific-popup.scss";
+
+@import "~hover.css/css/hover.css";
+
+
+
+@import "scss/custom.scss";

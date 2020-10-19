@@ -1,0 +1,16 @@
+export ProjectName=divi-child-theme-nodejs
+export ImageName=node
+export ImageVersion=latest
+
+#SS : Source script
+alias ss="source use_docker"
+
+alias drestart='sudo docker start -a -i $ProjectName '
+alias dstop='sudo docker stop $ProjectName'
+alias ddelete='sudo docker container rm $ProjectName'
+alias dls='sudo docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Size}}\t{{.Status}}\t{{.CreatedAt}}"'
+alias dexec='sudo docker start -ai $ProjectName && sudo docker exec -it $ProjectName $*'
+
+
+alias dnew='sudo docker run --name $ProjectName --volume="$PWD:/mnt/$ProjectName" -it -d $ImageName:$ImageVersion bash'
+
