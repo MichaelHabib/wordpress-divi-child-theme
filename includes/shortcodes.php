@@ -27,3 +27,17 @@ function mh_get_current_page_featured_image_url($atts)
 	return get_the_post_thumbnail_url($post->ID);
 //	return $thumbnail;
 }
+
+/*
+ * ************************************************************
+ * Provide a shortcode for Yoast SEO Breadcrumbs
+ * */
+add_shortcode('mh_get_yoast_breadcrumbs', 'mh_get_yoast_breadcrumbs');
+function mh_get_yoast_breadcrumbs()
+{
+	if (function_exists('yoast_breadcrumb')) {
+		return yoast_breadcrumb('<p id="breadcrumbs">', '</p>',false);
+	}else{
+		return 'please enable Yoast Breadcrumbs';
+	}
+}
